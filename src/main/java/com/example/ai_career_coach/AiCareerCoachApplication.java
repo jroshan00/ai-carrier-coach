@@ -9,5 +9,4 @@ public class AiCareerCoachApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AiCareerCoachApplication.class, args);
 	}
-
 }

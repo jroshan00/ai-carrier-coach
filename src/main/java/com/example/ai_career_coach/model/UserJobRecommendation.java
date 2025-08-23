@@ -2,6 +2,8 @@ package com.example.ai_career_coach.model;
 
 import java.time.LocalDateTime;
 
+import org.springframework.stereotype.Component;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,6 +22,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name="user_recommendations")
+@Component
 public class UserJobRecommendation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
