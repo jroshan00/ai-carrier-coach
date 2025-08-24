@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.ai_career_coach.model.Job;
 import com.example.ai_career_coach.service.JobService;
 
+@CrossOrigin(origins = "http://localhost:1234") // Use your front-end port
 @RestController
 @RequestMapping("/job")
 public class JobController {
@@ -65,6 +67,15 @@ public class JobController {
 		}else {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("The given Id is not available in DB");
 		}
+	}
+	
+	@GetMapping("getRecommendationByUserId/{userId}")
+	public ResponseEntity<?> getUserJobRecommentationController(@PathVariable Long userId){
+		List<Job> jobs=jobService.getJobRecommentationService(userId);
+		if(jobs!=null) {
+			return ResponseEntity.ok(jobs);
+		}
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Invalid user_id as input");
 	}
 	
 }
