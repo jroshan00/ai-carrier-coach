@@ -2,8 +2,6 @@ package com.example.ai_career_coach.model;
 
 import java.time.LocalDateTime;
 
-import org.springframework.stereotype.Component;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,7 +18,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name="resumes")
-@Component
 public class Resume {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
